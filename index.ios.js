@@ -14,6 +14,8 @@ import {
   Image
 } from 'react-native'
 
+import SocketIOClient from 'socket.io-client';
+
 // This is the root view
 var Connect4 = React.createClass({
   render() {
@@ -47,7 +49,7 @@ var Interface= React.createClass({
     //   })
     // })
     return{
-      dataSource: [[,0,0,0,0,0,0],
+      dataSource: [[0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0],
@@ -59,6 +61,18 @@ var Interface= React.createClass({
 
 
   render(){
+
+    // var currentData = this.state.dataSource;
+    //
+    // var newDate = [[],[],[],[],[],[]];
+    //
+    // for(var i=0; i<currentData.length; i++){
+    //   for(var j=0; j<)
+    //
+    // }
+
+
+
     return (
 
       <View style={styles.container}>
@@ -66,7 +80,7 @@ var Interface= React.createClass({
       <Text style={styles.textBig}> Current Turn:</Text>
       {this.state.dataSource.map((row)=>
       <Text style={styles.grid}>{row.map((item) =>
-      <Text>{item}</Text>)}
+      <Text style={{height: 10, width:10}}>{item}</Text>)}
       </Text>)}
       </View>
 
