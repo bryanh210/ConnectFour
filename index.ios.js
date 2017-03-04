@@ -47,16 +47,16 @@ var Interface= React.createClass({
     //   })
     // })
     return{
-      dataSource: [["O","O","O","O","O","O","O"],
-      ["O","O","O","O","O","O","O"],
-      ["O","O","O","O","O","O","O"],
-      ["O","O","O","O","O","O","O"],
-      ["O","O","O","O","O","O","O"],
-      ["O","O","O","O","O","O","O"],
-      ["O","O","O","O","O","O","O"]]
+      initialRow: ["🐳","🐼","🐸","🐙","🐨","🐤","🐩"],
+      dataSource: [["0","0","0","0","0","0","0"],
+      ["0","0","0","0","0","0","0"],
+      ["0","0","0","0","0","0","0"],
+      ["0","0","0","0","0","0","0"],
+      ["0","0","0","0","0","0","0"],
+      ["0","0","0","0","0","0","0"],
+      ["0","0","0","0","0","0","0"]]
     }
   },
-
 
   render(){
     return (
@@ -64,6 +64,11 @@ var Interface= React.createClass({
       <View style={styles.container}>
       <Image style={styles.backgroundImage} source={{uri: 'https://s-media-cache-ak0.pinimg.com/originals/ac/99/13/ac991305df5fb4c1cdd53bf7f5535a4e.gif'}}/>
       <Text style={styles.textBig}> Current Turn:</Text>
+      <TouchableOpacity>
+      <Text>{this.state.initialRow.map((panda)=>
+      <Text style={styles.roundbutton}>{panda}</Text>)}
+      </Text>
+      </TouchableOpacity>
       {this.state.dataSource.map((row)=>
       <Text style={styles.grid}>{row.map((item) =>
       <Text>{item}</Text>)}
@@ -143,7 +148,7 @@ var Register = React.createClass({
 
   press(){
 
-    fetch('https://hohoho-backend.herokuapp.com/register', {
+    fetch('http://localhost:3000/register', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -210,7 +215,7 @@ var Login = React.createClass({
   press(username,password){
     // var self = this;
 
-    fetch('https://hohoho-backend.herokuapp.com/login', {
+    fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -381,6 +386,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     textAlign: 'center',
     margin: 10,
+    opacity: 0.85
   },
   button: {
     alignSelf: 'stretch',
@@ -421,6 +427,13 @@ grid:{
   borderColor: '#000',
   fontSize: 40,
   opacity: 0.75
+},
+
+roundbutton:{
+    backgroundColor: "transparent",
+    borderColor: '#000',
+    fontSize: 20,
+    opacity: 0.75
 },
 
   });
