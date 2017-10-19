@@ -1,3 +1,14 @@
 # ConnectFour
-A mobile version of the game Connect Four, built using NodeJS, Express,MongoDB, WebSockets, Passport. 
-FrontEnd created using ReactNative, JSX, SocketIOClient
+
+Connect Four game using sockets and supports multiplayer on iOS using React Native.
+
+# To get the client running:
+ ```
+npm install
+react-native run-ios
+```
+
+#To get the server running:
+```
+npm install && npm start
+```

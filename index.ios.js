@@ -57,7 +57,7 @@ var Interface= React.createClass({
       ["0","0","0","0","0","0","0"]]
     }
   },
-
+//Basically, TouchableOpacity is React-Native’s component that responds to touches. 
   render(){
     return (
 
